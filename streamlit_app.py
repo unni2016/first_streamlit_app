@@ -4,7 +4,8 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
-streamlit.title('My Parents New Healthy Diner')
+#streamlit.title('My Parents New Healthy Diner')
+streamlit.title('View Our Fruit List - Add Your Favorites!')
 
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
@@ -76,7 +77,7 @@ def get_fruit_load_list():
         my_cur.execute("select * from fruit_load_list")
         return my_cur.fetchall()
 # Add a button to load the fruit
-if streamlit.button('Get Fruit Load List'):
+if streamlit.button('Get Fruit List'):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_fruit_load_list()
     my_cnx.close()
